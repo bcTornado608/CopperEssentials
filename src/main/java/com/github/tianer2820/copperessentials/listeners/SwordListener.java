@@ -24,7 +24,7 @@ public class SwordListener implements Listener {
             EntityType.ENDER_DRAGON, Material.DRAGON_HEAD,
             EntityType.PLAYER, Material.PLAYER_HEAD);
 
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     public void onEntityDeath(EntityDeathEvent event) {
         Player killer = event.getEntity().getKiller();
         if (killer == null || !CopperSword.isItem(killer.getInventory().getItemInMainHand())) {
