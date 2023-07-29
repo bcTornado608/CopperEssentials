@@ -15,6 +15,7 @@ import com.github.tianer2820.copperessentials.items.CopperAxe;
 import com.github.tianer2820.copperessentials.items.CopperHoe;
 import com.github.tianer2820.copperessentials.items.CopperPickaxe;
 import com.github.tianer2820.copperessentials.items.CopperShovel;
+import com.github.tianer2820.copperessentials.items.CopperSword;
 import com.github.tianer2820.copperessentials.listeners.AxeListener;
 import com.github.tianer2820.copperessentials.listeners.HoeListener;
 import com.github.tianer2820.copperessentials.listeners.PickaxeListener;
@@ -96,6 +97,16 @@ public class CopperEssentials extends JavaPlugin implements Listener{
         recipe.setIngredient('I', Material.STICK);
         getServer().addRecipe(recipe);
 
+        // copper sword
+        recipe = new ShapedRecipe(CommonConstants.COPPER_SWORD_RECIPE_KEY, CopperSword.getItemStack(1)); 
+        recipe.shape(
+            "C",
+            "C",
+            "I"
+        );
+        recipe.setIngredient('C', Material.COPPER_INGOT);
+        recipe.setIngredient('I', Material.STICK);
+        getServer().addRecipe(recipe);
 
         // copper name tag
         ShapelessRecipe shapelessRecipe = new ShapelessRecipe(CommonConstants.COPPER_NAME_TAG_RECIPE_KEY, new ItemStack(Material.NAME_TAG));
