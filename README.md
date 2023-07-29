@@ -24,7 +24,7 @@ This plugin is for you!
   - Copper Hoe - Harvest crops and replant with one click!
   - (TODO) Copper Bucket - Contain up to 8 unit of liquid! Fluid engineering has never been easier!
 - Make the game funner:
-  - (TODO) Copper Sword - Get the head of the mob you just killed! Player heads as well!
+  - Copper Sword - Get the head of the mob you just killed! Player heads as well!
   - Craft name tag with copper and spider thread! Name your pets and your equipments, many resource packs can show special texture for items with special names!
 - More to be added... Create a feature request if you have any idea!
 
