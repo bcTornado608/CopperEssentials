@@ -1,9 +1,9 @@
 name: CopperEssentials
 version: 0.0.1
 main: com.github.tianer2820.copperessentials.CopperEssentials
-description: A survival tool plugin
+description: A time saver plugin
 author: tianer2820
-website: https://github.com/tianer2820/Hyperplasia-MCPlugin
+website: https://github.com/tianer2820/CopperEssentials
 api-version: '1.20'
 
 commands:
