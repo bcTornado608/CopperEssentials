@@ -32,14 +32,17 @@ public class FloatingBlocksHelpers {
     }
 
     public static Set<Block> getConnectedFloatingBlocks(
-                Set<Block> visited,
-                Set<Block> waveFront,
+                Set<Block> initialVisited,
+                Set<Block> initialWaveFront,
                 Predicate<? super Block> isInterestedBlock,
                 Predicate<? super Block> isSupportingBlock,
                 int maxCapacity){
         if(surroundingOffsets == null){
             init();
         }
+
+        Set<Block> visited = new HashSet<>(initialVisited);
+        Set<Block> waveFront = new HashSet<>(initialWaveFront);
 
         boolean done = false;
         boolean isFloating = true;

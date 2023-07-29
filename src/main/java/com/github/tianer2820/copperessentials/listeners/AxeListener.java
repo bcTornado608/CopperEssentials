@@ -2,12 +2,14 @@ package com.github.tianer2820.copperessentials.listeners;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -79,37 +81,60 @@ public class AxeListener implements Listener {
             return;
         }
 
-        // trace all upper connected log
-
-        Set<Block> visited = new HashSet<>();
-        Set<Block> waveFront = new HashSet<>();
-
+        // trace all connected log
+        Set<Block> visitedLog = new HashSet<>();
+        Set<Block> logWaveFront = new HashSet<>();
         // add upper blocks
         for (int dx = -1; dx <= 1; dx++) {
             for (int dz = -1; dz <= 1; dz++) {
                 Block currentBlock = block.getRelative(dx, 1, dz);
                 if(logMaterials.contains(currentBlock.getType())){
-                    waveFront.add(currentBlock);
+                    logWaveFront.add(currentBlock);
                 }
             }
         }
-        visited.add(block);
+        visitedLog.add(block);
 
         // find connected floating logs, will return empty if not floating
-        Set<Block> floatingLogs = FloatingBlocksHelpers.getConnectedFloatingBlocks(visited, waveFront,
+        Set<Block> floatingLogs = FloatingBlocksHelpers.getConnectedFloatingBlocks(visitedLog, logWaveFront,
                 b -> logMaterials.contains(b.getType()), 
-                AxeListener::isSupportingBlock, 512);
+                AxeListener::isLogSupportingBlock,
+                512);
 
+        // break the log blocks and prepare for finding connected leaves
+        Set<Block> leaveWavefront = new HashSet<>();
         for (Block logBlock : floatingLogs) {
+            Block blockAbove = logBlock.getRelative(BlockFace.UP);
+            if(leaveMaterials.contains(blockAbove.getType())){
+                leaveWavefront.add(blockAbove);
+            }
             logBlock.breakNaturally();
         }
+
+        // find floating leaves and break them
+        Set<Block> floatingLeaves = FloatingBlocksHelpers.getConnectedFloatingBlocks(Collections.emptySet(), leaveWavefront, 
+                b -> leaveMaterials.contains(b.getType()),
+                AxeListener::isLeafSupportingBlock,
+                512);
+        
+        floatingLeaves.forEach(Block::breakNaturally);
     }
 
-    private static boolean isSupportingBlock(Block block){
+    private static boolean isLogSupportingBlock(Block block){
         if(block.isLiquid() || block.isPassable() || block.isEmpty()){
             return false;
         }
         if(leaveMaterials.contains(block.getType()) || logMaterials.contains(block.getType())){
+            return false;
+        }
+        return true;
+    }
+
+    private static boolean isLeafSupportingBlock(Block block){
+        if(block.isLiquid() || block.isPassable() || block.isEmpty()){
+            return false;
+        }
+        if(leaveMaterials.contains(block.getType())){
             return false;
         }
         return true;
