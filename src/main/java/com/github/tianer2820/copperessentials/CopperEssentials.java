@@ -4,7 +4,9 @@ package com.github.tianer2820.copperessentials;
 
 import org.bukkit.Material;
 import org.bukkit.event.Listener;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.ShapelessRecipe;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -79,6 +81,13 @@ public class CopperEssentials extends JavaPlugin implements Listener{
         recipe.setIngredient('C', Material.COPPER_INGOT);
         recipe.setIngredient('I', Material.STICK);
         getServer().addRecipe(recipe);
+
+
+        // copper name tag
+        ShapelessRecipe shapelessRecipe = new ShapelessRecipe(CommonConstants.COPPER_NAME_TAG_RECIPE_KEY, new ItemStack(Material.NAME_TAG));
+        shapelessRecipe.addIngredient(1, Material.STRING);
+        shapelessRecipe.addIngredient(1, Material.COPPER_INGOT);
+        getServer().addRecipe(shapelessRecipe);
 
     }
 }
