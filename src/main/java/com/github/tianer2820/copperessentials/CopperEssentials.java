@@ -11,8 +11,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.github.tianer2820.copperessentials.constants.CommonConstants;
 import com.github.tianer2820.copperessentials.items.CopperAxe;
 import com.github.tianer2820.copperessentials.items.CopperPickaxe;
+import com.github.tianer2820.copperessentials.items.CopperShovel;
 import com.github.tianer2820.copperessentials.listeners.AxeListener;
 import com.github.tianer2820.copperessentials.listeners.PickaxeListener;
+import com.github.tianer2820.copperessentials.listeners.ShovelListener;
 
 
 
@@ -44,6 +46,7 @@ public class CopperEssentials extends JavaPlugin implements Listener{
 
         manager.registerEvents(new PickaxeListener(), this);
         manager.registerEvents(new AxeListener(), this);
+        manager.registerEvents(new ShovelListener(), this);
     }
 
     private void registerRecipies(){
@@ -60,9 +63,19 @@ public class CopperEssentials extends JavaPlugin implements Listener{
         // copper axe
         recipe = new ShapedRecipe(CommonConstants.COPPER_AXE_RECIPE_KEY, CopperAxe.getItemStack(1));
         recipe.shape(
-            " CC",
-            " IC",
-            " I ");
+            "CC",
+            "IC",
+            "I ");
+        recipe.setIngredient('C', Material.COPPER_INGOT);
+        recipe.setIngredient('I', Material.STICK);
+        getServer().addRecipe(recipe);
+
+        // copper shovel
+        recipe = new ShapedRecipe(CommonConstants.COPPER_SHOVEL_RECIPE_KEY, CopperShovel.getItemStack(1));
+        recipe.shape(
+            "C",
+            "I",
+            "I");
         recipe.setIngredient('C', Material.COPPER_INGOT);
         recipe.setIngredient('I', Material.STICK);
         getServer().addRecipe(recipe);
