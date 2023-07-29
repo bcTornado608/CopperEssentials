@@ -7,7 +7,7 @@ Supported Minecraft version: PaperMC 1.20+
 Earlier versions and other servers will be added later
 
 
-Status: Alpha (0.2.0), not all planned functions are implemented
+Status: Alpha (0.3.0), not all planned functions are implemented
 
 ## What is this?
 Want to spend less time digging, spend more time building, fighting and having fun?
@@ -30,8 +30,8 @@ This plugin is for you!
 
 # Version Plans
 - 0.1.0: initial version, added pickaxe only
-- **0.2.0: add shovel, axe, hoe, and name tag (current)**
-- 0.3.0: add copper sword
+- 0.2.0: add shovel, axe, hoe, and name tag (current)
+- **0.3.0: add copper sword**
 - 0.4.0: add copper bucket
 - 0.5.0: internal tests done, entering beta phase
 - 1.0.0: Most bugs ironed out, the first formal release!
