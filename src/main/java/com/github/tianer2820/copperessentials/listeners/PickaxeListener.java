@@ -35,12 +35,15 @@ public class PickaxeListener implements Listener {
         }
         functionalItemStack.setItemMeta(meta);
 
+        // cancel this event, trigger another using the functional item stack
+        // apply damage as usual
+        event.setCancelled(true);
+        handItem.damage(1, event.getPlayer());
+
         for (int dx = 0; dx < 3; dx++) {
             for (int dy = 0; dy < 3; dy++) {
                 for (int dz = 0; dz < 3; dz++) {
-                    if(dx == 1 && dy == 1 && dz == 1){
-                        continue;
-                    }
+
                     Block edgeBlock = centerBlock.getRelative(dx-1, dy-1, dz-1);
                     if(!edgeBlock.isPreferredTool(functionalItemStack)){
                         continue;
