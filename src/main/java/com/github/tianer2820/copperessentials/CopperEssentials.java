@@ -20,6 +20,7 @@ import com.github.tianer2820.copperessentials.listeners.AxeListener;
 import com.github.tianer2820.copperessentials.listeners.HoeListener;
 import com.github.tianer2820.copperessentials.listeners.PickaxeListener;
 import com.github.tianer2820.copperessentials.listeners.ShovelListener;
+import com.github.tianer2820.copperessentials.listeners.SwordListener;
 
 
 
@@ -53,6 +54,7 @@ public class CopperEssentials extends JavaPlugin implements Listener{
         manager.registerEvents(new AxeListener(), this);
         manager.registerEvents(new ShovelListener(), this);
         manager.registerEvents(new HoeListener(), this);
+        manager.registerEvents(new SwordListener(), this);
     }
 
     private void registerRecipies(){
