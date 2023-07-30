@@ -7,7 +7,7 @@ Supported Minecraft version: PaperMC 1.20+
 Earlier versions and other servers will be added later
 
 
-Status: Alpha (0.3.0), not all planned functions are implemented
+Status: Beta (0.4.0), all planned functions are implemented
 
 ## What is this?
 Want to spend less time digging, spend more time building, fighting and having fun?
@@ -22,16 +22,17 @@ This plugin is for you!
   - Copper Shovel - Same as above!
   - Copper Axe - Cut down the entire tree with one click!
   - Copper Hoe - Harvest crops and replant with one click!
-  - (TODO) Copper Bucket - Contain up to 8 unit of liquid! Fluid engineering has never been easier!
 - Make the game funner:
   - Copper Sword - Get the head of the mob you just killed! Player heads as well!
-  - Craft name tag with copper and spider thread! Name your pets and your equipments, many resource packs can show special texture for items with special names!
-- More to be added... Create a feature request if you have any idea!
+  - Craft name tag with copper and spider thread! Name your pets!
+- Create a feature request if you have any ideas!
 
+Recommend to use with the **Item Bound: Rebound** resources pack, the copper tools will have real copper textures. 
+Download it here:
+https://www.planetminecraft.com/texture-pack/itembound-fixed/
 # Version Plans
 - 0.1.0: initial version, added pickaxe only
-- 0.2.0: add shovel, axe, hoe, and name tag (current)
-- **0.3.0: add copper sword**
-- 0.4.0: add copper bucket
-- 0.5.0: internal tests done, entering beta phase
+- 0.2.0: add shovel, axe, hoe, and name tag
+- 0.3.0: add copper sword
+- **0.4.0: internal tests done, entering beta phase (current)**
 - 1.0.0: Most bugs ironed out, the first formal release!
