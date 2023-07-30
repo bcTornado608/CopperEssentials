@@ -12,7 +12,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import com.github.tianer2820.copperessentials.constants.CommonConstants;
 import com.github.tianer2820.copperessentials.items.CopperAxe;
-import com.github.tianer2820.copperessentials.items.CopperBucket;
 import com.github.tianer2820.copperessentials.items.CopperHoe;
 import com.github.tianer2820.copperessentials.items.CopperPickaxe;
 import com.github.tianer2820.copperessentials.items.CopperShovel;
@@ -110,15 +109,6 @@ public class CopperEssentials extends JavaPlugin implements Listener{
         recipe.setIngredient('C', Material.COPPER_INGOT);
         recipe.setIngredient('I', Material.STICK);
         getServer().addRecipe(recipe);
-
-        // copper bucket
-        ShapedRecipe bucketRecipe = new ShapedRecipe(CommonConstants.COPPER_BUCKET_RECIPE_KEY,
-                CopperBucket.getItemStack(1));
-        bucketRecipe.shape(
-                "C C",
-                " C ");
-        bucketRecipe.setIngredient('C', Material.COPPER_INGOT);
-        getServer().addRecipe(bucketRecipe);
 
         // copper name tag
         ShapelessRecipe shapelessRecipe = new ShapelessRecipe(CommonConstants.COPPER_NAME_TAG_RECIPE_KEY, new ItemStack(Material.NAME_TAG));

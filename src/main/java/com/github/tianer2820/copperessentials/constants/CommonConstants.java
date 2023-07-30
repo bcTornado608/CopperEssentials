@@ -27,10 +27,6 @@ public class CommonConstants {
     public static final String COPPER_SWORD_RECIPE = "copper_sword_recipe";
     public static NamespacedKey COPPER_SWORD_RECIPE_KEY = null;
 
-    public static final String COPPER_BUCKET_RECIPE = "copper_bucket_recipe";
-    public static NamespacedKey COPPER_BUCKET_RECIPE_KEY = null;
-    
-
     public static final String COPPER_NAME_TAG_RECIPE = "copper_name_tag_recipe";
     public static NamespacedKey COPPER_NAME_TAG_RECIPE_KEY = null;
     
@@ -43,7 +39,5 @@ public class CommonConstants {
         COPPER_HOE_RECIPE_KEY = new NamespacedKey(plugin, COPPER_HOE_RECIPE);
         COPPER_SWORD_RECIPE_KEY = new NamespacedKey(plugin, COPPER_SWORD_RECIPE);
         COPPER_NAME_TAG_RECIPE_KEY = new NamespacedKey(plugin, COPPER_NAME_TAG_RECIPE);
-        COPPER_BUCKET_RECIPE_KEY = new NamespacedKey(plugin, COPPER_BUCKET_RECIPE);
-
     }
 }
