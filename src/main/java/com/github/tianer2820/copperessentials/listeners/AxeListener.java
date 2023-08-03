@@ -117,10 +117,13 @@ public class AxeListener implements Listener {
                 AxeListener::isLeafSupportingBlock,
                 512);
         
-        floatingLeaves.forEach(Block::breakNaturally);
-        // the original block is broken, cancel this event and apply tool damage
-        event.setCancelled(true);
-        handItem.damage(1, event.getPlayer());
+        if(!floatingLeaves.isEmpty()){
+            floatingLeaves.forEach(Block::breakNaturally);
+    
+            // the original block is broken, cancel this event and apply tool damage
+            event.setCancelled(true);
+            handItem.damage(1, event.getPlayer());
+        }
     }
 
     private static boolean isLogSupportingBlock(Block block){

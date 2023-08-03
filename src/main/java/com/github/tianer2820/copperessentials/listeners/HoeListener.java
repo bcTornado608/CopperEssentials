@@ -79,6 +79,12 @@ public class HoeListener implements Listener {
             }
         }
         drops.forEach(player.getInventory()::addItem);
+        for (ItemStack stack : drops) {
+            Map<Integer, ItemStack> overflow = player.getInventory().addItem(stack);
+            for (ItemStack itemStack : overflow.values()) {
+                player.getWorld().dropItem(player.getLocation(), itemStack);
+            }
+        }
 
         ageableData.setAge(0);
         block.setBlockData(ageableData);
