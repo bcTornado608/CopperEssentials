@@ -35,13 +35,13 @@ public class ShovelListener implements Listener {
         }
         functionalItemStack.setItemMeta(meta);
 
-        for (int dx = 0; dx < 3; dx++) {
-            for (int dy = 0; dy < 3; dy++) {
-                for (int dz = 0; dz < 3; dz++) {
-                    if(dx == 1 && dy == 1 && dz == 1){
+        for (int dx = -1; dx <= 1; dx++) {
+            for (int dy = -1; dy <= 1; dy++) {
+                for (int dz = -1; dz <= 1; dz++) {
+                    if(dx == 0 && dy == 0 && dz == 0){
                         continue;
                     }
-                    Block edgeBlock = centerBlock.getRelative(dx-1, dy-1, dz-1);
+                    Block edgeBlock = centerBlock.getRelative(dx, dy, dz);
                     if(!edgeBlock.isPreferredTool(functionalItemStack)){
                         continue;
                     }

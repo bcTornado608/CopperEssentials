@@ -102,6 +102,7 @@ public class AxeListener implements Listener {
                 512);
 
         // break the log blocks and prepare for finding connected leaves
+        floatingLogs.remove(block);
         Set<Block> leaveWavefront = new HashSet<>();
         for (Block logBlock : floatingLogs) {
             Block blockAbove = logBlock.getRelative(BlockFace.UP);
@@ -116,13 +117,8 @@ public class AxeListener implements Listener {
                 b -> leaveMaterials.contains(b.getType()),
                 AxeListener::isLeafSupportingBlock,
                 512);
-        
         if(!floatingLeaves.isEmpty()){
             floatingLeaves.forEach(Block::breakNaturally);
-    
-            // the original block is broken, cancel this event and apply tool damage
-            event.setCancelled(true);
-            handItem.damage(1, event.getPlayer());
         }
     }
 
