@@ -16,8 +16,10 @@ import com.github.tianer2820.copperessentials.items.CopperHoe;
 import com.github.tianer2820.copperessentials.items.CopperPickaxe;
 import com.github.tianer2820.copperessentials.items.CopperShovel;
 import com.github.tianer2820.copperessentials.items.CopperSword;
+import com.github.tianer2820.copperessentials.items.IceBomb;
 import com.github.tianer2820.copperessentials.listeners.AxeListener;
 import com.github.tianer2820.copperessentials.listeners.HoeListener;
+import com.github.tianer2820.copperessentials.listeners.IceBombListener;
 import com.github.tianer2820.copperessentials.listeners.PickaxeListener;
 import com.github.tianer2820.copperessentials.listeners.ShovelListener;
 import com.github.tianer2820.copperessentials.listeners.SwordListener;
@@ -55,6 +57,7 @@ public class CopperEssentials extends JavaPlugin implements Listener{
         manager.registerEvents(new ShovelListener(), this);
         manager.registerEvents(new HoeListener(), this);
         manager.registerEvents(new SwordListener(), this);
+        manager.registerEvents(new IceBombListener(), this);
     }
 
     private void registerRecipies(){
@@ -115,6 +118,17 @@ public class CopperEssentials extends JavaPlugin implements Listener{
         shapelessRecipe.addIngredient(1, Material.STRING);
         shapelessRecipe.addIngredient(1, Material.COPPER_INGOT);
         getServer().addRecipe(shapelessRecipe);
+
+        // ice bomb
+        recipe = new ShapedRecipe(CommonConstants.ICE_BOMB_RECIPE_KEY, IceBomb.getItemStack(1)); 
+        recipe.shape(
+            " S ",
+            "SGS",
+            " S "
+        );
+        recipe.setIngredient('S', Material.SNOWBALL);
+        recipe.setIngredient('G', Material.GUNPOWDER);
+        getServer().addRecipe(recipe);
 
     }
 }
