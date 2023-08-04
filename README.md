@@ -7,7 +7,7 @@ Supported Minecraft version: PaperMC 1.20+
 Earlier versions and other servers will be added later
 
 
-Status: Beta (0.4.0), all planned functions are implemented
+Status: Beta (0.4.1), all planned functions are implemented
 
 ## What is this?
 Want to spend less time digging, spend more time building, fighting and having fun?
