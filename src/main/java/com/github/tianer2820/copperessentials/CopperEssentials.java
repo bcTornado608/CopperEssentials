@@ -23,6 +23,7 @@ import com.github.tianer2820.copperessentials.listeners.IceBombListener;
 import com.github.tianer2820.copperessentials.listeners.PickaxeListener;
 import com.github.tianer2820.copperessentials.listeners.ShovelListener;
 import com.github.tianer2820.copperessentials.listeners.SwordListener;
+import com.github.tianer2820.copperessentials.tasks.SlimePotTask;
 
 
 
@@ -40,10 +41,16 @@ public class CopperEssentials extends JavaPlugin implements Listener{
         registerCommands();
         registerListeners();
         registerRecipies();
+
+        startBgTasks();
     }
 
     public static CopperEssentials getInstance(){
         return instance;
+    }
+
+    private void startBgTasks(){
+        new SlimePotTask().runTaskTimer(this, 0, 10);
     }
     
     private void registerCommands(){
@@ -58,6 +65,7 @@ public class CopperEssentials extends JavaPlugin implements Listener{
         manager.registerEvents(new HoeListener(), this);
         manager.registerEvents(new SwordListener(), this);
         manager.registerEvents(new IceBombListener(), this);
+
     }
 
     private void registerRecipies(){
