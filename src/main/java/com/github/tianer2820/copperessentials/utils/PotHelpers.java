@@ -52,6 +52,11 @@ public class PotHelpers {
             visitedBlocks.addAll(activeBlocks);
             newActiveBlocks.removeAll(visitedBlocks);
             activeBlocks = newActiveBlocks;
+            
+            if(visitedBlocks.size() > maxVolume){
+                isPot = false;
+                break;
+            }
         }
 
         if(isPot){
