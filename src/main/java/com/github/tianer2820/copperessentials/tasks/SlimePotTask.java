@@ -20,12 +20,48 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import com.github.tianer2820.copperessentials.CopperEssentials;
 import com.github.tianer2820.copperessentials.utils.PotHelpers;
+import com.google.common.collect.ImmutableSet;
 
 public class SlimePotTask extends BukkitRunnable{
     private Random rng = new Random();
 
     private static final int MAX_SLIME_SIZE = 126;
     private static final int MAX_POT_SIZE = 512;
+
+    private static final Set<Material> POT_MATERIALS = ImmutableSet.of(
+            Material.COPPER_BLOCK,
+            Material.EXPOSED_COPPER,
+            Material.WEATHERED_COPPER,
+            Material.OXIDIZED_COPPER,
+            Material.CUT_COPPER,
+            Material.EXPOSED_CUT_COPPER,
+            Material.WEATHERED_CUT_COPPER,
+            Material.OXIDIZED_CUT_COPPER,
+            Material.CUT_COPPER_STAIRS,
+            Material.EXPOSED_CUT_COPPER_STAIRS,
+            Material.WEATHERED_CUT_COPPER_STAIRS,
+            Material.OXIDIZED_CUT_COPPER_STAIRS,
+            Material.CUT_COPPER_SLAB,
+            Material.EXPOSED_CUT_COPPER_SLAB,
+            Material.WEATHERED_CUT_COPPER_SLAB,
+            Material.OXIDIZED_CUT_COPPER_SLAB,
+            Material.WAXED_COPPER_BLOCK,
+            Material.WAXED_EXPOSED_COPPER,
+            Material.WAXED_WEATHERED_COPPER,
+            Material.WAXED_OXIDIZED_COPPER,
+            Material.WAXED_CUT_COPPER,
+            Material.WAXED_EXPOSED_CUT_COPPER,
+            Material.WAXED_WEATHERED_CUT_COPPER,
+            Material.WAXED_OXIDIZED_CUT_COPPER,
+            Material.WAXED_CUT_COPPER_STAIRS,
+            Material.WAXED_EXPOSED_CUT_COPPER_STAIRS,
+            Material.WAXED_WEATHERED_CUT_COPPER_STAIRS,
+            Material.WAXED_OXIDIZED_CUT_COPPER_STAIRS,
+            Material.WAXED_CUT_COPPER_SLAB,
+            Material.WAXED_EXPOSED_CUT_COPPER_SLAB,
+            Material.WAXED_WEATHERED_CUT_COPPER_SLAB,
+            Material.WAXED_OXIDIZED_CUT_COPPER_SLAB
+    );
 
 
     @Override
@@ -50,7 +86,7 @@ public class SlimePotTask extends BukkitRunnable{
             }
             if(!knownPotRegion.contains(stackBlock)){
                 // check if this is a new pot
-                Set<Block> potRegion = PotHelpers.detectPot(Material.COPPER_BLOCK, Material.WATER, stackBlock.getLocation().getBlock(), MAX_POT_SIZE);
+                Set<Block> potRegion = PotHelpers.detectPot(POT_MATERIALS, Material.WATER, stackBlock.getLocation().getBlock(), MAX_POT_SIZE);
                 knownPotRegion.addAll(potRegion);
             }
             if(knownPotRegion.contains(stackBlock)){
@@ -73,7 +109,7 @@ public class SlimePotTask extends BukkitRunnable{
             }
             if(!knownPotRegion.contains(slimeBlock)){
                 // check if this is a new pot
-                Set<Block> potRegion = PotHelpers.detectPot(Material.COPPER_BLOCK, Material.WATER, slimeBlock.getLocation().getBlock(), MAX_POT_SIZE);
+                Set<Block> potRegion = PotHelpers.detectPot(POT_MATERIALS, Material.WATER, slimeBlock.getLocation().getBlock(), MAX_POT_SIZE);
                 knownPotRegion.addAll(potRegion);
             }
             if(knownPotRegion.contains(slimeBlock)){

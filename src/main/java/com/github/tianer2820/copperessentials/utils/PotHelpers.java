@@ -12,7 +12,7 @@ import com.google.common.collect.ImmutableSet;
 
 public class PotHelpers {
 
-    public static Set<Block> detectPot(Material potMaterial, Material fillerMaterial, Block start, int maxVolume){
+    public static Set<Block> detectPot(Set<Material> potMaterial, Material fillerMaterial, Block start, int maxVolume){
         Set<Block> visitedBlocks = new HashSet<>();
         Set<Block> activeBlocks = new HashSet<>();
 
@@ -30,7 +30,7 @@ public class PotHelpers {
                     Block sideBlock = block.getRelative(lowerFace);
                     if(sideBlock.getType() == fillerMaterial){
                         newActiveBlocks.add(sideBlock);
-                    } else if (sideBlock.getType() == potMaterial){
+                    } else if (potMaterial.contains(sideBlock.getType())){
                         // do nothing for pot block
                     } else {
                         isPot = false;
@@ -42,7 +42,7 @@ public class PotHelpers {
                 Block topBlock = block.getRelative(BlockFace.UP);
                 if(topBlock.getType() == fillerMaterial){
                     newActiveBlocks.add(topBlock);
-                } else if (topBlock.getType() == Material.AIR || topBlock.getType() == potMaterial){
+                } else if (topBlock.getType() == Material.AIR || potMaterial.contains(topBlock.getType())){
                     // do nothing for air on top
                 } else {
                     isPot = false;
