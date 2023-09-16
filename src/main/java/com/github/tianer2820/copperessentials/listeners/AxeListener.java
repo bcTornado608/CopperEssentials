@@ -10,6 +10,7 @@ import java.util.Set;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -25,6 +26,11 @@ import com.google.common.collect.ImmutableSet;
  * NewPlayerListener
  */
 public class AxeListener implements Listener {
+    private boolean debug = false;
+    private void dbg(Player p, String msg){
+        if(debug)
+            p.sendMessage(msg);
+    }
 
     private static final Set<Material> logMaterials = ImmutableSet.of(
         Material.OAK_LOG,
@@ -81,7 +87,7 @@ public class AxeListener implements Listener {
             return;
         }
         Block block = event.getBlock();
-        event.getPlayer().sendMessage("Broke: " + block.getType().toString());
+        dbg(event.getPlayer(), "Broke: " + block.getType().toString());
         if(!logMaterials.contains(block.getType())){
             return;
         }
