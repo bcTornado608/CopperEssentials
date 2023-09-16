@@ -34,7 +34,9 @@ public class AxeListener implements Listener {
         Material.ACACIA_LOG,
         Material.CHERRY_LOG,
         Material.DARK_OAK_LOG,
-        Material.MANGROVE_LOG
+        Material.MANGROVE_LOG,
+        Material.CRIMSON_STEM,
+        Material.WARPED_STEM
     );
     private static final Set<Material> leaveMaterials = ImmutableSet.of(
         Material.OAK_LEAVES,
@@ -46,7 +48,9 @@ public class AxeListener implements Listener {
         Material.DARK_OAK_LEAVES,
         Material.MANGROVE_LEAVES,
         Material.AZALEA_LEAVES,
-        Material.FLOWERING_AZALEA_LEAVES
+        Material.FLOWERING_AZALEA_LEAVES,
+        Material.NETHER_WART_BLOCK,
+        Material.WARPED_WART_BLOCK
     );
 
     // un-nest loops, make code more readable
@@ -77,6 +81,7 @@ public class AxeListener implements Listener {
             return;
         }
         Block block = event.getBlock();
+        event.getPlayer().sendMessage("Broke: " + block.getType().toString());
         if(!logMaterials.contains(block.getType())){
             return;
         }
